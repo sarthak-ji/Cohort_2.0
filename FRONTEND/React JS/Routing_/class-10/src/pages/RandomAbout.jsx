@@ -1,13 +1,11 @@
 import React from 'react'
 
-function Product() {
+function RandomAbout() {
   return (
-    <>
     <div className='font-extrabold text-4xl text-black underline text-center'>
-      Product page
+      About something ...
     </div>
-    </>
   )
 }
 
-export default Product
+export default RandomAbout

@@ -1,13 +1,11 @@
 import React from 'react'
 
-function Product() {
+function Course() {
   return (
-    <>
     <div className='font-extrabold text-4xl text-black underline text-center'>
-      Product page
+      Courses page
     </div>
-    </>
   )
 }
 
-export default Product
+export default Course

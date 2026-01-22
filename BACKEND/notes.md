@@ -1,7 +1,8 @@
 Back-end Notes:
 
 * How to run JS outside the browser?
-- use command -> "node (filename).js"
+- use command -> "node (filename).js" or, "npx nodemon (filename).js" 
+
 
 * What are the packages?
 - Packages are the codes that are written by other developers and are uploaded on the "npm-website", and we can use them eaisly by installing them in the form of node packages in our terminal. [Aur ye package node_modules me jaa kar add ho jata hai]

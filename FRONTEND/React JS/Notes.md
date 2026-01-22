@@ -29,4 +29,25 @@ React-Router-dom:
 - Make Navbar Component as well and add it before in App.jsx
 - Nestes Routes can be made by writing in this way - path="/product/men"
 - Dynamic Routes can be made by writing this way - path="/product/:id"
-- You can access id by using useParams() hook inside that component you rendered in a Dynamic Rout
+- You can access id by using useParams() hook inside that component you rendered in a Dynamic Routing
+
+4. 
+React - Single Page Applications (URL Change hone pe kuch nahi hota tha!)
+REACT-ROUTER-DOM - came to solve this problem
+
+* Types of Routers:-
+
+1. BrowserRouter:
+- History API
+- URL clean
+- modern apps
+- Good SEO
+- Needs Server Config.
+
+2. Hash Router - contains - /courses/#/about - Older Browsers - No SEO
+
+3. Memory Router - React Native
+
+4. Static Router - SSR
+
+Routes - Container Route - If URL(path) is X then show Y

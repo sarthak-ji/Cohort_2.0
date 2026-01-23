@@ -22,3 +22,8 @@ Back-end Notes:
 * Creating server with Express..
 1. command: 'npm init -y' -> creates package.json
 2. command: 'npm i express'
+
+
+* RestAPI -> Used in client-server communication (And the rule is: "Either use HTTP/HTTPs protocol")
+- Note: If any other protocol is used then, it is not RestAPI.
+- Note: And, aap communication kis type ka kar rhe ho uske hisab se "method- (GET/POST/PUT/PATCH/DELETE)" decide hogi..

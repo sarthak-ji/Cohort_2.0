@@ -27,3 +27,6 @@ Back-end Notes:
 * RestAPI -> Used in client-server communication (And the rule is: "Either use HTTP/HTTPs protocol")
 - Note: If any other protocol is used then, it is not RestAPI.
 - Note: And, aap communication kis type ka kar rhe ho uske hisab se "method- (GET/POST/PUT/PATCH/DELETE)" decide hogi..
+
+* DATABASE:
+- Mongoose package -> helps in connecting express server to the Mongodb database. ("npm i mongoose")

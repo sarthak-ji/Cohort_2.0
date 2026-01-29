@@ -1,19 +1,19 @@
 /**
- * Server ko start karna
- * Database se connect karna
+ * Server ko start karne ke liye.
+ * Database se connect karne ke liye.
  */
 
 const app = require("./src/app");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-function connectToDatabase(){
+function connectToDB(){
     mongoose.connect("mongodb+srv://Sarthak_Sriv:EIWAPKE5r85DPznO@cluster0.3sznj6a.mongodb.net/")
     .then(() => {
-        console.log("Connected to database");
+        console.log("Database is connected");
     });
 }
 
-connectToDatabase();
+connectToDB();
 
 
 app.listen(3000, () => {

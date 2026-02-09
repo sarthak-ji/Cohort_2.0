@@ -10,7 +10,7 @@ app.post("/notes", async (req, res) => {
     const {title, description, age} = req.body;
 
     const note = await noteModel.create({
-        title, description
+        title, description, age
     });
 
     res.status(201).json({

@@ -8,11 +8,11 @@ const authRouter = express.Router(); // if in case hume 'app.js' ke alawa aur ki
 /**
  * /api/auth/register
  */
-authRouter("/register", async (req, res) => {
+authRouter.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
 
   const isUserAlreadyExists = await userModel.findOne({ email });
-  if (!isUserAlreadyExists) {
+  if (isUserAlreadyExists) {
     return res.status(409).json({
       message: "User already exists with this email address.",
     });
@@ -32,13 +32,22 @@ authRouter("/register", async (req, res) => {
     process.env.JWT_SECRET,
   );
 
-  res.cookie("jwt_token", token);
-
+  res.cookie("jwt_token", token); // generated token ko server cookie storage me rkh deta hai aur waha se read krleta hai jab bhi client request jati hai server pe!!
 
   res.status(201).json({
     message: "User registered successfully",
     user,
     token
+  });
+});
+
+
+authRouter.get("/register", async(Req, res) => {
+  const user = await userModel.find();
+
+  res.status(200).json({
+    message: "User fetched...",
+    user
   });
 });
 

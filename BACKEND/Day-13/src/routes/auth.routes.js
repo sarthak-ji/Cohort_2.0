@@ -2,7 +2,7 @@ const express = require("express");
 const userModel = require("../models/user.model");
 const authRouter = express.Router();
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
+const crypto = require("crypto"); // low-level package for security -> "Bcryptjs package is the high-level security package"
 
 /**
  * /api/auth/register

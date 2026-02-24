@@ -1,9 +1,9 @@
-const userModel = require("../models/user.model");
+const userModel = require("../models/users.model");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const bcryptjs = require("bcryptjs");
 
-async function userRegister(req, res) {
-  const { username, email, password, bio, profile_pic } = req.body;
+async function registerController(req, res) {
+  const { username, email, password, profile_pic, bio } = req.body;
 
   const isUserAlreadyExists = await userModel.findOne({
     $or: [{ username }, { email }],
@@ -12,10 +12,10 @@ async function userRegister(req, res) {
   if (isUserAlreadyExists) {
     return res.status(409).json({
       message:
-        "User already exists" +
-        (isUserAlreadyExists.username == username
-          ? "Username already exists"
-          : "Email already exists"),
+        "User already exists " +
+        (isUserAlreadyExists == username
+          ? "Username already exists."
+          : "Email already exists."),
     });
   }
 
@@ -23,8 +23,8 @@ async function userRegister(req, res) {
 
   const user = await userModel.create({
     username,
-    email,
     password: hash,
+    email,
     bio,
     profile_pic,
   });
@@ -40,7 +40,7 @@ async function userRegister(req, res) {
   res.cookie("token", token);
 
   res.status(201).json({
-    message: "User registered successfully",
+    message: "User Registered successfully.",
     user: {
       username: user.username,
       email: user.email,
@@ -50,7 +50,7 @@ async function userRegister(req, res) {
   });
 }
 
-async function userLogin(req, res) {
+async function loginController(req, res) {
   const { username, email, password } = req.body;
 
   const user = await userModel.findOne({
@@ -59,7 +59,7 @@ async function userLogin(req, res) {
 
   if (!user) {
     return res.status(404).json({
-      message: "User not found!",
+      message: "User not found.",
     });
   }
 
@@ -67,7 +67,7 @@ async function userLogin(req, res) {
 
   if (!isPasswordValid) {
     return res.status(401).json({
-      message: "Invalid password",
+      message: "Password is Invalid.",
     });
   }
 
@@ -82,7 +82,7 @@ async function userLogin(req, res) {
   res.cookie("token", token);
 
   res.status(200).json({
-    message: "User loggedIn successfully",
+    message: "User loggedIn successfully.",
     user: {
       username: user.username,
       email: user.email,
@@ -93,6 +93,6 @@ async function userLogin(req, res) {
 }
 
 module.exports = {
-  userRegister,
-  userLogin,
+  registerController,
+  loginController,
 };
